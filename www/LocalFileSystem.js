@@ -21,3 +21,4 @@
 
 exports.TEMPORARY = 0;
 exports.PERSISTENT = 1;
+exports.APP_PRIVATE = 2;

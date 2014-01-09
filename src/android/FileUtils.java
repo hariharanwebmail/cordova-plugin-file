@@ -69,6 +69,8 @@ public class FileUtils extends CordovaPlugin {
 
     public static int TEMPORARY = 0;
     public static int PERSISTENT = 1;
+    public static int APP_PRIVATE = 2;
+	
     public static int RESOURCE = 2;
     public static int APPLICATION = 3;
 
@@ -998,6 +1000,10 @@ public class FileUtils extends CordovaPlugin {
                 fs.put("root", getEntry("/data/data/" + cordova.getActivity().getPackageName()));
             }
         }
+		else if (type == APP_PRIVATE) {
+			fs.put("name", "persistent");
+			fs.put("root", getEntry(cordova.getActivity().getExternalFilesDir(null)));
+		}
         else {
             throw new IOException("No filesystem of type requested");
         }
